@@ -1,0 +1,15 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Flash Cards
+        link(rel="shortcut icon", href="#")
+    body
+        include includes/header.pug
+        if name
+            h2 Welcome, #{name}!
+            form(action="/goodbye", method="post")
+                button(type="submit") Goodbye
+        block sex
+        include includes/footer.pug

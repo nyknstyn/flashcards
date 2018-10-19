@@ -1,0 +1,16 @@
+extends layout.pug
+block sex
+    section#content
+        if colors
+            ul 
+                each color in colors 
+                    li= color 
+        h2= text
+        if hint
+            p
+                i Hint: #{hint}
+        //- else
+        //-     p (There is no hint)  
+        a(href=`${id}?side=${sideToShow}`)= sideToShowDisplay
+        br
+        a(href="/card") Next card    
