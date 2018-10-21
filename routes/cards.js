@@ -36,12 +36,14 @@ router.get('/:id', (req, res) => {  // :id is route parameter
     const {id} = req.params;
 
     if(!side){
-        res.redirect(`/card/${id}?side=question`);
+        return res.redirect(`/card/${id}?side=question`);
+        // If return is not added, even after redirecting the rest of the code below will continue executing 
+        // will throw error.
     }
     const name = req.cookies.username;
     const text = cards[id][side];
     const {hint} = cards[id];
-    const templateData = {name, id, text};
+    const templateData = {name, id, text, side};
 
     if(side == "question") {
         templateData.hint = hint;

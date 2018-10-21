@@ -21,7 +21,7 @@ router.get('/hello', (req, res)=> {
     }
 });
 
-router.post('/badelog', (req, res)=> {
+router.post('/hello', (req, res)=> {
     res.cookie("username", req.body.username);
     res.redirect("/");
 });

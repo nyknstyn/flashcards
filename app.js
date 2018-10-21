@@ -5,8 +5,12 @@ const cookieParser = require("cookie-parser");
 const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
+//app.use(express.static("public")); // With this will able to see css file using, localhost:1000/stylesheets/style.css
 
-app.set("view engine", "pug");
+app.use("/static", express.static("public")); //route the static server to static. Now this will worl
+                                              //localhost:1000/stylesheets/style.css  
+
+app.set("view engine", "pug"); 
 
 const mainRoutes = require("./routes"); // Because this folder has an index js file we don't need to refer to that when 
                                     // we require it
@@ -35,7 +39,6 @@ app.use(mainRoutes);
 app.use("/card", cardRoutes); // for /cards use this routes defined in cardRoutes. Starting with /cards
 
 app.use((req, res, next)=>{
-    console.log("Hello");
     // req.message = "This message made it!";
     next(); // next means middleware is ended. Without next the brwoser will be stuck
 });
