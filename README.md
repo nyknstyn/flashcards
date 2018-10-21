@@ -4,6 +4,7 @@ flashcards
 
 ### To run code,
 ```
+npm install
 nodemon
 ```
 
